@@ -1,18 +1,42 @@
 package Scripts.Run;
 
+import Scripts.Framework.Parameters.Parameters;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class MainScene {
     JFrame frame = new JFrame("MainMenu");
+    private JButton startgame;
+    private JButton leaderboard;
+    private JButton credits;
+
+    private final ActionListener actionListener = actionEvent -> {
+        Object source = actionEvent.getSource();
+        if (source == startgame) {
+            Sokoban.getInstance().StartGame();
+            
+        }else if(source == leaderboard)
+        {
+            ShowLeaderboard();
+        }else if(source == credits)
+        {
+            ShowCredits();
+        }
+    };
+
+    private void ShowCredits() {
+    }
+
+    private void ShowLeaderboard() {
+    }
+
     public MainScene()
     {
-        p = new Parameters();
+         Parameters p = new Parameters();
 
-        this.gridSize = p.GetGridSize();
-        cells = new Cell[p.GetGridSize()][p.GetGridSize()];
-
-        frame.setSize(p.GetPixelSize(), p.GetPixelSize());
+        frame.setSize(p.GetMainPixelSize(), p.GetMainPixelSize());
         frame.setLayout(new BorderLayout());
 
         InitializeButtonPanel();
@@ -25,15 +49,18 @@ public class MainScene {
     private void InitializeButtonPanel() {
         JPanel buttonPanel = new JPanel();
 
-        JButton reset = new JButton("Reset");
-        JButton giveUp = new JButton("Give Up");
+        startgame = new JButton("Start Game");
+        leaderboard = new JButton("Leaderboard");
+        credits = new JButton("Credits");
 
-        reset.addActionListener(actionListener);
-        giveUp.addActionListener(actionListener);
+        startgame.addActionListener(actionListener);
+        leaderboard.addActionListener(actionListener);
+        credits.addActionListener(actionListener);
 
-        buttonPanel.add(reset);
-        buttonPanel.add(giveUp);
-        frame.add(buttonPanel, BorderLayout.SOUTH);
+        buttonPanel.add(startgame);
+        buttonPanel.add(leaderboard);
+        buttonPanel.add(credits);
+        frame.add(buttonPanel, BoxLayout.Y_AXIS);
     }
     //new Sokoban();
     //new Leaderboard();

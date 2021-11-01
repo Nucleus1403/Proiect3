@@ -4,7 +4,7 @@ public class Sokoban {
 
     private static Sokoban instance=null;
 
-    public Sokoban getInstance()
+    public static Sokoban getInstance()
     {
         if(instance==null)
             return new Sokoban();
