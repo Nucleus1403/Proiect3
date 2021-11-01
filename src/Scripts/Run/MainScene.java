@@ -2,6 +2,7 @@ package Scripts.Run;
 
 import Scripts.Framework.Parameters.Parameters;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -45,26 +46,49 @@ public class MainScene {
     }
 
     private void InitializeButtonPanel() {
-        BoxLayout boxLayout = new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS);
+        //BoxLayout boxLayout = new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS);
+
+        ImageIcon img = new ImageIcon("D:\\School\\Modul 1\\OOP\\Laborator\\Proiect 3\\src\\Textures\\Texture\\Background.gif");
+        JLabel contentPane = new JLabel();
+        contentPane.setIcon(img);
+        frame.setContentPane(contentPane);
+
+        JPanel panel = new JPanel(new GridBagLayout());
+
         startgame = new JButton("Start Game");
+        startgame.setPreferredSize(new Dimension(100, 50));
         leaderboard = new JButton("Leaderboard");
+        leaderboard.setPreferredSize(new Dimension(100, 50));
         credits = new JButton("Credits");
+        credits.setPreferredSize(new Dimension(100, 50));
 
         startgame.addActionListener(actionListener);
         leaderboard.addActionListener(actionListener);
         credits.addActionListener(actionListener);
 
-        frame.add(startgame);
-        frame.add(leaderboard);
-        frame.add(credits);
+        GridBagConstraints constraints = new GridBagConstraints();
 
-        frame.setLayout(boxLayout);
+        constraints.insets = new Insets(10,10,10,10);
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        panel.add(startgame,constraints);
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        panel.add(leaderboard,constraints);
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        panel.add(credits,constraints);
+
+
+        frame.add(panel);
+
+      /*  frame.setLayout(boxLayout);
         startgame.setAlignmentX(Component.CENTER_ALIGNMENT);
         startgame.setAlignmentY(Component.RIGHT_ALIGNMENT);
         leaderboard.setAlignmentX(Component.CENTER_ALIGNMENT);
         leaderboard.setAlignmentY(Component.CENTER_ALIGNMENT);
         credits.setAlignmentX(Component.CENTER_ALIGNMENT);
-        credits.setAlignmentY(Component.CENTER_ALIGNMENT);
+        credits.setAlignmentY(Component.CENTER_ALIGNMENT); */
     }
     //new Sokoban();
     //new Leaderboard();
