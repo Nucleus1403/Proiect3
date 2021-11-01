@@ -1,11 +1,8 @@
-package Scripts.Framework;
-
-import Scripts.Run.GameArea;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
+package Scripts.Framework.Character;
 
 public class CharacterMovement {
+
+    /*
     protected GameArea ga;
     public void moveCharacterRight()
     {
@@ -22,5 +19,5 @@ public class CharacterMovement {
     public void moveCharacterDown()
     {
         ga.moveDown();
-    }
+    }*/
 }
