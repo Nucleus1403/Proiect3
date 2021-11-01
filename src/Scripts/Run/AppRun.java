@@ -12,7 +12,7 @@ public class AppRun {
         } catch (Exception ignore) {
         }
         // Launch the program
-        //new Minesweeper();
+        new MainScene();
     }
 
     public static void main(String[] args) {

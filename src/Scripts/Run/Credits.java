@@ -1,5 +1,5 @@
 package Scripts.Run;
 
-public class Sokoban {
+public class Credits {
 
 }
