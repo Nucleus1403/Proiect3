@@ -35,9 +35,7 @@ public class MainScene {
     public MainScene()
     {
          Parameters p = new Parameters();
-
         frame.setSize(p.GetMainPixelSize(), p.GetMainPixelSize());
-        frame.setLayout(new BorderLayout());
 
         InitializeButtonPanel();
 
@@ -47,7 +45,6 @@ public class MainScene {
     }
 
     private void InitializeButtonPanel() {
-        JPanel buttonPanel = new JPanel();
 
         startgame = new JButton("Start Game");
         leaderboard = new JButton("Leaderboard");
@@ -57,10 +54,11 @@ public class MainScene {
         leaderboard.addActionListener(actionListener);
         credits.addActionListener(actionListener);
 
-        buttonPanel.add(startgame);
-        buttonPanel.add(leaderboard);
-        buttonPanel.add(credits);
-        frame.add(buttonPanel, BoxLayout.Y_AXIS);
+        frame.add(startgame);
+        frame.add(leaderboard);
+        frame.add(credits);
+
+        frame.setLayout(new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS));
     }
     //new Sokoban();
     //new Leaderboard();
