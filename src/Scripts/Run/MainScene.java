@@ -45,7 +45,7 @@ public class MainScene {
     }
 
     private void InitializeButtonPanel() {
-
+        BoxLayout boxLayout = new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS);
         startgame = new JButton("Start Game");
         leaderboard = new JButton("Leaderboard");
         credits = new JButton("Credits");
@@ -58,7 +58,13 @@ public class MainScene {
         frame.add(leaderboard);
         frame.add(credits);
 
-        frame.setLayout(new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS));
+        frame.setLayout(boxLayout);
+        startgame.setAlignmentX(Component.CENTER_ALIGNMENT);
+        startgame.setAlignmentY(Component.RIGHT_ALIGNMENT);
+        leaderboard.setAlignmentX(Component.CENTER_ALIGNMENT);
+        leaderboard.setAlignmentY(Component.CENTER_ALIGNMENT);
+        credits.setAlignmentX(Component.CENTER_ALIGNMENT);
+        credits.setAlignmentY(Component.CENTER_ALIGNMENT);
     }
     //new Sokoban();
     //new Leaderboard();
