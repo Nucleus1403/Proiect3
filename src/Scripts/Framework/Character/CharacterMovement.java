@@ -1,23 +1,35 @@
 package Scripts.Framework.Character;
 
+import Scripts.Run.Sokoban;
+
+import javax.swing.*;
+
 public class CharacterMovement {
 
-    /*
-    protected GameArea ga;
+
+    private static CharacterMovement instance=null;
+
+    public static CharacterMovement getInstance()
+    {
+        if(instance==null)
+            return new CharacterMovement();
+        return instance;
+    }
+
     public void moveCharacterRight()
     {
-        ga.moveRight();
+
     }
     public void moveCharacterLeft()
     {
-        ga.moveLeft();
+
     }
     public void moveCharacterUp()
     {
-        ga.moveUp();
+
     }
     public void moveCharacterDown()
     {
-        ga.moveDown();
-    }*/
+
+    }
 }

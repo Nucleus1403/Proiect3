@@ -1,13 +1,12 @@
 package Scripts.Framework.InputSystem;
 
+import Scripts.Framework.Character.CharacterMovement;
 import Scripts.Run.Sokoban;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class InputSystem {
-
-
     private void initControls()
     {
         InputMap im = Sokoban.frame.getRootPane().getInputMap();
@@ -47,16 +46,18 @@ public class InputSystem {
 
     private void moveRight()
     {
-
+        CharacterMovement.getInstance().moveCharacterRight();
     }
     private void moveLeft()
     {
-
+        CharacterMovement.getInstance().moveCharacterLeft();
     }
     private void moveUp()
     {
-
+        CharacterMovement.getInstance().moveCharacterUp();
     }
-    private void moveDown() {
+    private void moveDown()
+    {
+        CharacterMovement.getInstance().moveCharacterDown();
     }
 }
