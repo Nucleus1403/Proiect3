@@ -55,6 +55,11 @@ public class MainScene {
         Border emptyBorder = BorderFactory.createEmptyBorder();
         TextureGetter textureGetter = new TextureGetter();
 
+        ImageIcon img = new ImageIcon("src/Textures/Texture/background2.gif");
+        JLabel contentPane = new JLabel();
+        contentPane.setIcon(img);
+        frame.add(contentPane);
+
         startgame = new JButton(textureGetter.getstarticon());
         startgame.setPreferredSize(new Dimension(100, 25));
         startgame.setBorder(emptyBorder);
