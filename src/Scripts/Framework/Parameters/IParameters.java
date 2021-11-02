@@ -2,5 +2,8 @@ package Scripts.Framework.Parameters;
 
 public interface IParameters {
 
-    public int GetMainPixelSize();
+
+    public int getMainPixelSize();
+
+    public int getPixelSize();
 }

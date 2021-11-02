@@ -3,6 +3,7 @@ package Scripts.Framework.Map;
 /// 1->wall,2->terrain,3->dot,4->crate_open,5->crate_close,6->character
 /// 7->terrainV2;
 
+import Scripts.Framework.Parameters.Parameters;
 import Textures.TextureGetter;
 import javax.swing.*;
 import java.awt.*;
@@ -15,15 +16,21 @@ public class MapLoader extends JPanel {
     public static int SizeX;
     public static int SizeY;
 
+
     public static Cell[][] Map;
 
     private Scanner sc;
     private int Data;
 
     private TextureGetter textureGetter;
+    private Parameters parameters;
+
+    private int PixelSIze;
 
     public MapLoader()
-    {}
+    {
+
+    }
 
     public MapLoader(int mapNr) throws FileNotFoundException {
         InitializeMap(mapNr);
@@ -48,12 +55,10 @@ public class MapLoader extends JPanel {
                 break;
         }
 
-        SizeX = sc.nextInt();
         SizeY = sc.nextInt();
+        SizeX = sc.nextInt();
 
         Map = new Cell[SizeX+1][SizeY+1];
-
-        textureGetter = new TextureGetter();
 
         for (int i = 1; i <= SizeX; i++) {
             for (int j = 1; j <= SizeY; j++) {
@@ -64,6 +69,12 @@ public class MapLoader extends JPanel {
                 Map[i][j].type = Data;
             }
         }
+
+        textureGetter = new TextureGetter();
+        parameters= new Parameters();
+
+        PixelSIze = parameters.getPixelSize();
+
     }
 
     @Override
@@ -82,45 +93,29 @@ public class MapLoader extends JPanel {
                 switch (Map[i][j].type)
                 {
                     case 1:
-                        g.drawImage(textureGetter.getWall(),2,2,this);
+                        g.drawImage(textureGetter.getWall(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
                         break;
                     case 2:
-                        g.drawImage(textureGetter.getTerrainMainVersion(),i*32,j*32,this);
+                        g.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
                         break;
                     case 3:
-                        g.drawImage(textureGetter.getDot(),i*32,j*32,this);
+                        g.drawImage(textureGetter.getDot(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
                         break;
                     case 4:
-                        g.drawImage(textureGetter.getCrate_open(),i*32,j*32,this);
+                        g.drawImage(textureGetter.getCrate_open(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
 
                         break;
                     case 5:
-                        g.drawImage(textureGetter.getCrate_closed(),i*32,j*32,this);
+                        g.drawImage(textureGetter.getCrate_closed(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
 
                         break;
                     case 6:
-                        g.drawImage(textureGetter.getCharacter(),i*32,j*32,this);
+                        g.drawImage(textureGetter.getCharacter(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
 
-                        break;
-                    case 7:
-                        g.drawImage(textureGetter.getTerrain_red(),i*32,j*32,this);
                         break;
                 }
             }
         }
-       // BufferedImage image = ImageIO.read(new File(path, "image.png"));
-       // BufferedImage overlay = ImageIO.read(new File(path, "overlay.png"));
-
-        // create the new image, canvas size is the max. of both image sizes
-       // int w = Math.max(image.getWidth(), overlay.getWidth());
-       // int h = Math.max(image.getHeight(), overlay.getHeight());
-       // BufferedImage combined = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-
-        // paint both images, preserving the alpha channels
-       // Graphics g = combined.getGraphics();
-       // g.drawImage(image, 0, 0, null);
-       // g.drawImage(overlay, 0, 0, null);
-
     }
 
 
