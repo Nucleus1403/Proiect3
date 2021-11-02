@@ -2,7 +2,6 @@ package Scripts.Run;
 
 import Scripts.Framework.Parameters.Parameters;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -19,7 +18,7 @@ public class MainScene {
         if (source == startgame) {
             Sokoban game = new Sokoban();
             game.setVisible(true);
-            
+
         }else if(source == leaderboard)
         {
             ShowLeaderboard();
@@ -37,8 +36,9 @@ public class MainScene {
 
     public MainScene()
     {
+
          Parameters p = new Parameters();
-        frame.setSize(p.GetMainPixelSize(), p.GetMainPixelSize());
+        frame.setSize(p.getMainPixelSize(), p.getMainPixelSize());
 
         InitializeButtonPanel();
 
@@ -55,6 +55,7 @@ public class MainScene {
         ImageIcon starticon = new ImageIcon("src/Textures/Texture/start.png");
         ImageIcon leaderboardicon = new ImageIcon("src/Textures/Texture/leaderboard.png");
         ImageIcon creditsicon = new ImageIcon("src/Textures/Texture/credits.png");
+
 
         startgame = new JButton(starticon);
         startgame.setPreferredSize(new Dimension(100, 25));
