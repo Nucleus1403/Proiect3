@@ -16,7 +16,7 @@ public class TextureGetter implements ITextureGetter {
 
     public Image getCrate_closed() {
         try{
-            return new ImageIcon("src/Textures/Texture/Crate check-0001.png").getImage().getScaledInstance(32 ,32,Image.SCALE_DEFAULT);
+            return new ImageIcon("src/Textures/Texture/CrateCheck-0001.png").getImage().getScaledInstance(32 ,32,Image.SCALE_DEFAULT);
         }catch (Exception e ) {
             System.out.println(e.getMessage());
         }
@@ -50,7 +50,7 @@ public class TextureGetter implements ITextureGetter {
         return null;
     }
 
-    public Image getTerrain_purple() {
+    public Image getTerrainMainVersion() {
         try{
             return new ImageIcon("src/Textures/Texture/Teren 1.png").getImage().getScaledInstance(32 ,32,Image.SCALE_DEFAULT);
         }catch (Exception e ) {

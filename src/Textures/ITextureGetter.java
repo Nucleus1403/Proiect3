@@ -9,7 +9,7 @@ public interface ITextureGetter {
     public Image getWall();
     public Image getCharacter();
     public Image getDot();
-    public Image getTerrain_purple();
+    public Image getTerrainMainVersion();
     public Image getTerrain_red();
 
 }
