@@ -60,7 +60,7 @@ public class MainScene {
         startgame.setBorder(emptyBorder);
         startgame.setBorderPainted(false);
         leaderboard = new JButton(textureGetter.getleaderboardicon());
-        leaderboard.setPreferredSize(new Dimension(175, 25));
+        leaderboard.setPreferredSize(new Dimension(100, 25));
         leaderboard.setBorder(emptyBorder);
         leaderboard.setBorderPainted(false);
         credits = new JButton(textureGetter.getcreditsicon());
