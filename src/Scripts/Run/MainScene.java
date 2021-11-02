@@ -17,7 +17,8 @@ public class MainScene {
     private final ActionListener actionListener = actionEvent -> {
         Object source = actionEvent.getSource();
         if (source == startgame) {
-            Sokoban.getInstance().StartGame();
+            Sokoban game = new Sokoban();
+            game.setVisible(true);
             
         }else if(source == leaderboard)
         {

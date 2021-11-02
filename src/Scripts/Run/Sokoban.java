@@ -1,24 +1,35 @@
 package Scripts.Run;
 
+
+import Scripts.Framework.Map.MapLoader;
 import javax.swing.*;
+import java.io.FileNotFoundException;
 
-public class Sokoban {
-
-    private static Sokoban instance=null;
+public class Sokoban extends JFrame{
 
     public static JFrame frame;
-    public static Sokoban getInstance()
+
+    public Sokoban()
     {
-        if(instance==null)
-            return new Sokoban();
-        return instance;
+        frame = this;
+        Initialize();
     }
 
-    public void StartGame()
+    private void Initialize()
     {
-        
+        MapLoader map1 = null;
+        try {
+            map1 = new MapLoader(1);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        add(map1);
+
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+
     }
-
-
-
 }
