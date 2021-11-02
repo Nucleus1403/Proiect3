@@ -16,7 +16,6 @@ public class MapLoader extends JPanel {
     public static int SizeX;
     public static int SizeY;
 
-
     public static Cell[][] Map;
 
     private Scanner sc;
@@ -60,13 +59,13 @@ public class MapLoader extends JPanel {
 
         Map = new Cell[SizeX+1][SizeY+1];
 
-        for (int i = 1; i <= SizeX; i++) {
-            for (int j = 1; j <= SizeY; j++) {
+        for (int i = 0; i < SizeX; i++) {
+            for (int j = 0; j < SizeY; j++) {
 
                 Data = sc.nextInt();
 
                 Map[i][j]= new Cell();
-                Map[i][j].type = Data;
+                Map[i][j].setType(Data);
             }
         }
 
@@ -88,29 +87,29 @@ public class MapLoader extends JPanel {
         g.setColor(new Color(250, 240, 170));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
-        for (int i = 1; i <= SizeX; i++) {
-            for (int j = 1; j <= SizeY; j++) {
-                switch (Map[i][j].type)
+        for (int i = 0; i < SizeX; i++) {
+            for (int j = 0; j < SizeY; j++) {
+                switch (Map[i][j].getType())
                 {
                     case 1:
-                        g.drawImage(textureGetter.getWall(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
+                        g.drawImage(textureGetter.getWall(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
                         break;
                     case 2:
-                        g.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
+                        g.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
                         break;
                     case 3:
-                        g.drawImage(textureGetter.getDot(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
+                        g.drawImage(textureGetter.getDot(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
                         break;
                     case 4:
-                        g.drawImage(textureGetter.getCrate_open(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
+                        g.drawImage(textureGetter.getCrate_open(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
 
                         break;
                     case 5:
-                        g.drawImage(textureGetter.getCrate_closed(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
+                        g.drawImage(textureGetter.getCrate_closed(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
 
                         break;
                     case 6:
-                        g.drawImage(textureGetter.getCharacter(),(i*PixelSIze)+10,(j*PixelSIze)+10,this);
+                        g.drawImage(textureGetter.getCharacter(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
 
                         break;
                 }

@@ -1,21 +1,22 @@
 package Scripts.Framework.Map;
 
-import java.awt.*;
-
 public class Cell {
-    public int type;
-    public Image image;
+    private int type;
 
     public Cell(int type)
     {
         this.type = type;
     }
     public Cell()
-    {}
-
-    public Cell(int type,Image img)
     {
-        this.type =type;
-        this.image = img;
+
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }
