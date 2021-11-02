@@ -91,7 +91,7 @@ public class MapLoader extends JPanel {
 
     public void Draw(Graphics g)
     {
-        g.setColor(new Color(250, 240, 170));
+        g.setColor(new Color(7,75,88));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
         for (int i = 0; i < SizeX; i++) {
@@ -99,24 +99,24 @@ public class MapLoader extends JPanel {
                 switch (Map[i][j].getType())
                 {
                     case 1:
-                        g.drawImage(textureGetter.getWall(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
+                        g.drawImage(textureGetter.getWall(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
                         break;
                     case 2:
-                        g.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
+                        g.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
                         break;
                     case 3:
-                        g.drawImage(textureGetter.getDot(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
+                        g.drawImage(textureGetter.getDot(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
                         break;
                     case 4:
-                        g.drawImage(textureGetter.getCrate_open(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
+                        g.drawImage(textureGetter.getCrate_open(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
 
                         break;
                     case 5:
-                        g.drawImage(textureGetter.getCrate_closed(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
+                        g.drawImage(textureGetter.getCrate_closed(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
 
                         break;
                     case 6:
-                        g.drawImage(textureGetter.getCharacter(),(i*PixelSIze)+2,(j*PixelSIze)+2,this);
+                        g.drawImage(textureGetter.getCharacter(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
 
                         break;
                 }
@@ -126,5 +126,13 @@ public class MapLoader extends JPanel {
 
     public Actor getActor() {
         return actor;
+    }
+
+    public static int getSizeX() {
+        return SizeX;
+    }
+
+    public static int getSizeY() {
+        return SizeY;
     }
 }
