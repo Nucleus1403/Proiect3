@@ -4,6 +4,7 @@ import Scripts.Framework.Parameters.Parameters;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -48,19 +49,24 @@ public class MainScene {
     private void InitializeButtonPanel() {
         //BoxLayout boxLayout = new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS);
 
-        ImageIcon img = new ImageIcon("D:\\School\\Modul 1\\OOP\\Laborator\\Proiect 3\\src\\Textures\\Texture\\Background.gif");
-        JLabel contentPane = new JLabel();
-        contentPane.setIcon(img);
-        frame.setContentPane(contentPane);
-
         JPanel panel = new JPanel(new GridBagLayout());
+        Border emptyBorder = BorderFactory.createEmptyBorder();
+        ImageIcon starticon = new ImageIcon("src/Textures/Texture/start.png");
+        ImageIcon leaderboardicon = new ImageIcon("src/Textures/Texture/leaderboard.png");
+        ImageIcon creditsicon = new ImageIcon("src/Textures/Texture/credits.png");
 
-        startgame = new JButton("Start Game");
-        startgame.setPreferredSize(new Dimension(100, 50));
-        leaderboard = new JButton("Leaderboard");
-        leaderboard.setPreferredSize(new Dimension(100, 50));
-        credits = new JButton("Credits");
-        credits.setPreferredSize(new Dimension(100, 50));
+        startgame = new JButton(starticon);
+        startgame.setPreferredSize(new Dimension(100, 25));
+        startgame.setBorder(emptyBorder);
+        startgame.setBorderPainted(false);
+        leaderboard = new JButton(leaderboardicon);
+        leaderboard.setPreferredSize(new Dimension(175, 25));
+        leaderboard.setBorder(emptyBorder);
+        leaderboard.setBorderPainted(false);
+        credits = new JButton(creditsicon);
+        credits.setPreferredSize(new Dimension(100, 25));
+        credits.setBorder(emptyBorder);
+        credits.setBorderPainted(false);
 
         startgame.addActionListener(actionListener);
         leaderboard.addActionListener(actionListener);
@@ -68,19 +74,21 @@ public class MainScene {
 
         GridBagConstraints constraints = new GridBagConstraints();
 
-        constraints.insets = new Insets(10,10,10,10);
-        constraints.gridx = 0;
-        constraints.gridy = 1;
+        constraints.insets = new Insets(20,20,20,20);
+        constraints.gridx = 1;
+        constraints.gridy = 0;
         panel.add(startgame,constraints);
-        constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridx = 2;
+        constraints.gridy = 0;
         panel.add(leaderboard,constraints);
-        constraints.gridx = 0;
-        constraints.gridy = 3;
+        constraints.gridx = 3;
+        constraints.gridy = 0;
         panel.add(credits,constraints);
 
 
-        frame.add(panel);
+        frame.add(panel,BorderLayout.SOUTH);
+        frame.getContentPane().setBackground(Color.decode("#161424"));
+        panel.setBackground(Color.decode("#161424"));
 
       /*  frame.setLayout(boxLayout);
         startgame.setAlignmentX(Component.CENTER_ALIGNMENT);
