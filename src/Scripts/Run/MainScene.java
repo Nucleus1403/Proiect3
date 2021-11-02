@@ -39,7 +39,7 @@ public class MainScene {
     {
 
          Parameters p = new Parameters();
-        frame.setSize(p.getMainPixelSize(), p.getMainPixelSize());
+        frame.setSize(p.getMainPixelSize(), p.getMainPixelSize()+70);
 
 
         InitializeButtonPanel();
@@ -50,7 +50,6 @@ public class MainScene {
     }
 
     private void InitializeButtonPanel() {
-        //BoxLayout boxLayout = new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS);
 
         JPanel panel = new JPanel(new GridBagLayout());
         Border emptyBorder = BorderFactory.createEmptyBorder();
@@ -86,20 +85,10 @@ public class MainScene {
         constraints.gridy = 0;
         panel.add(credits,constraints);
 
-
+        frame.setResizable(false);
         frame.add(panel,BorderLayout.SOUTH);
-        frame.getContentPane().setBackground(Color.decode("#161424"));
-        panel.setBackground(Color.decode("#161424"));
+        frame.getContentPane().setBackground(Color.decode("#00050a"));
+        panel.setBackground(Color.decode("#00050a"));
 
-      /*  frame.setLayout(boxLayout);
-        startgame.setAlignmentX(Component.CENTER_ALIGNMENT);
-        startgame.setAlignmentY(Component.RIGHT_ALIGNMENT);
-        leaderboard.setAlignmentX(Component.CENTER_ALIGNMENT);
-        leaderboard.setAlignmentY(Component.CENTER_ALIGNMENT);
-        credits.setAlignmentX(Component.CENTER_ALIGNMENT);
-        credits.setAlignmentY(Component.CENTER_ALIGNMENT); */
     }
-    //new Sokoban();
-    //new Leaderboard();
-    //new Credits();
 }
