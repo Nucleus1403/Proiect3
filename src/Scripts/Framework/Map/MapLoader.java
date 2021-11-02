@@ -21,6 +21,8 @@ public class MapLoader extends JPanel {
     private Scanner sc;
     private int Data;
 
+    private Actor actor;
+
     private TextureGetter textureGetter;
     private Parameters parameters;
 
@@ -66,6 +68,11 @@ public class MapLoader extends JPanel {
 
                 Map[i][j]= new Cell();
                 Map[i][j].setType(Data);
+
+                if(Data==6)
+                {
+                    actor = new Actor(i,j);
+                }
             }
         }
 
@@ -117,6 +124,7 @@ public class MapLoader extends JPanel {
         }
     }
 
-
-
+    public Actor getActor() {
+        return actor;
+    }
 }

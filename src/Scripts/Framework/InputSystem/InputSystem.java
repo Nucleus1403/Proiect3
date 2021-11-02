@@ -7,6 +7,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class InputSystem {
+
+    public InputSystem()
+    {
+        initControls();
+    }
+
     private void initControls()
     {
         InputMap im = Sokoban.frame.getRootPane().getInputMap();

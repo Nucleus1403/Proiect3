@@ -10,4 +10,5 @@ public interface ITextureGetter {
     public Image getCharacter();
     public Image getDot();
     public Image getTerrain();
+
 }

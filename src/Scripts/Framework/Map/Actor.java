@@ -2,19 +2,27 @@ package Scripts.Framework.Map;
 
 public class Actor extends Cell{
 
-    private int[][] position;
+    private int positionX;
+    private int positionY;
 
     public Actor(int positionX,int positionY)
     {
-        position = new int[positionX][positionY];
+        this.positionX = positionX;
+        this.positionY = positionY;
         setType(6);
     }
 
-    public void setPosition(int[][] position) {
-        this.position = position;
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+    public void setPositionY(int positionY) {
+        this.positionY = positionY;
     }
 
-    public int[][] getPosition() {
-        return position;
+    public int getPositionX() {
+        return positionX;
+    }
+    public int getPositionY() {
+        return positionY;
     }
 }

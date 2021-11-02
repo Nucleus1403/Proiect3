@@ -1,6 +1,8 @@
 package Scripts.Run;
 
 
+import Scripts.Framework.Character.CharacterMovement;
+import Scripts.Framework.InputSystem.InputSystem;
 import Scripts.Framework.Map.MapLoader;
 import javax.swing.*;
 import java.io.FileNotFoundException;
@@ -8,6 +10,8 @@ import java.io.FileNotFoundException;
 public class Sokoban extends JFrame{
 
     public static JFrame frame;
+    public static MapLoader mapLoader;
+    public static InputSystem inputSystem;
 
     public Sokoban()
     {
@@ -17,14 +21,16 @@ public class Sokoban extends JFrame{
 
     private void Initialize()
     {
-        MapLoader map1 = null;
         try {
-            map1 = new MapLoader(1);
+            mapLoader = new MapLoader(1);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        add(map1);
+        add(mapLoader);
+
+        inputSystem = new InputSystem();
+        CharacterMovement.getInstance().setMapLoader(mapLoader);
 
         setSize(800, 600);
         setLocationRelativeTo(null);

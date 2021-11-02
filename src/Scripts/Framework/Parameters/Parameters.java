@@ -11,6 +11,7 @@ public class Parameters implements IParameters {
         return MAINSCREANPIXELSIZE;
     }
 
+
     public int getPixelSize() {
         return PIXELSIZE;
     }

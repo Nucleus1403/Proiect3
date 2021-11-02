@@ -72,6 +72,7 @@ public class TextureGetter implements ITextureGetter {
         return null;
     }
 
+
     public Image getTerrain() {
         try{
             return new ImageIcon("src/Textures/Texture/Teren.png").getImage();

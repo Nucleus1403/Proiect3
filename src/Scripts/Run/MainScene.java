@@ -40,6 +40,7 @@ public class MainScene {
          Parameters p = new Parameters();
         frame.setSize(p.getMainPixelSize(), p.getMainPixelSize());
 
+
         InitializeButtonPanel();
 
         frame.setLocationRelativeTo(null);
