@@ -1,5 +1,6 @@
 package Textures;
 
+import javax.swing.*;
 import java.awt.*;
 
 public interface ITextureGetter {
@@ -10,5 +11,8 @@ public interface ITextureGetter {
     public Image getCharacter();
     public Image getDot();
     public Image getTerrain();
+    public ImageIcon getstarticon();
+    public ImageIcon getleaderboardicon();
+    public ImageIcon getcreditsicon();
 
 }

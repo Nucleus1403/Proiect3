@@ -81,4 +81,16 @@ public class TextureGetter implements ITextureGetter {
         }
         return null;
     }
+
+    public ImageIcon getstarticon() {
+        return new ImageIcon("src/Textures/Texture/start.png");
+    }
+
+    public ImageIcon getleaderboardicon() {
+        return new ImageIcon("src/Textures/Texture/leaderboard.png");
+    }
+
+    public ImageIcon getcreditsicon() {
+        return new ImageIcon("src/Textures/Texture/credits.png");
+    }
 }

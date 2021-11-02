@@ -1,6 +1,7 @@
 package Scripts.Run;
 
 import Scripts.Framework.Parameters.Parameters;
+import Textures.TextureGetter;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -53,20 +54,17 @@ public class MainScene {
 
         JPanel panel = new JPanel(new GridBagLayout());
         Border emptyBorder = BorderFactory.createEmptyBorder();
-        ImageIcon starticon = new ImageIcon("src/Textures/Texture/start.png");
-        ImageIcon leaderboardicon = new ImageIcon("src/Textures/Texture/leaderboard.png");
-        ImageIcon creditsicon = new ImageIcon("src/Textures/Texture/credits.png");
+        TextureGetter textureGetter = new TextureGetter();
 
-
-        startgame = new JButton(starticon);
+        startgame = new JButton(textureGetter.getstarticon());
         startgame.setPreferredSize(new Dimension(100, 25));
         startgame.setBorder(emptyBorder);
         startgame.setBorderPainted(false);
-        leaderboard = new JButton(leaderboardicon);
+        leaderboard = new JButton(textureGetter.getleaderboardicon());
         leaderboard.setPreferredSize(new Dimension(175, 25));
         leaderboard.setBorder(emptyBorder);
         leaderboard.setBorderPainted(false);
-        credits = new JButton(creditsicon);
+        credits = new JButton(textureGetter.getcreditsicon());
         credits.setPreferredSize(new Dimension(100, 25));
         credits.setBorder(emptyBorder);
         credits.setBorderPainted(false);
