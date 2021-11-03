@@ -30,6 +30,17 @@ public class MainScene {
     };
 
     private void ShowCredits() {
+        JFrame credits =new JFrame("Credits");
+        credits.setSize(310,610);
+        ImageIcon imag = new ImageIcon("src/Textures/Texture/TreiDegeaba.png");
+        JLabel contentPane = new JLabel();
+        contentPane.setIcon(imag);
+        credits.add(contentPane);
+        credits.setVisible(true);
+        credits.setLocationRelativeTo(null);
+        credits.setResizable(false);
+        credits.setBackground(Color.black);
+        contentPane.setBackground(Color.black);
     }
 
     private void ShowLeaderboard() {
@@ -94,6 +105,8 @@ public class MainScene {
         frame.add(panel,BorderLayout.SOUTH);
         frame.getContentPane().setBackground(Color.decode("#00050a"));
         panel.setBackground(Color.decode("#00050a"));
+
+
 
     }
 }
