@@ -38,7 +38,7 @@ public class Sokoban extends JFrame{
         setSize(mapLoader.getSizeX()*parameters.getPixelSize()+20, mapLoader.getSizeY()*parameters.getPixelSize()+42);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        setResizable(true);
         setVisible(true);
 
     }
