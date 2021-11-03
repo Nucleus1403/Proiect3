@@ -52,6 +52,70 @@ public class MainScene {
     }
 
     private void ShowLeaderboard() {
+
+         JButton map1;
+         JButton map2;
+         JButton map3;
+         JButton map4;
+
+        JFrame maps =new JFrame("Maps");
+        maps.setSize(526,800);
+        ImageIcon imag2 = new ImageIcon("src/Textures/Texture/mapselect.png");
+        JLabel contentPane = new JLabel();
+        contentPane.setIcon(imag2);
+        maps.add(contentPane);
+        maps.setVisible(true);
+        maps.setLocationRelativeTo(null);
+        maps.setResizable(false);
+        maps.setBackground(Color.black);
+        contentPane.setBackground(Color.black);
+
+        JPanel panel = new JPanel(new GridBagLayout());
+        Border emptyBorder = BorderFactory.createEmptyBorder();
+        TextureGetter textureGetter = new TextureGetter();
+
+
+        map1 = new JButton(textureGetter.getmap1icon());
+        map1.setPreferredSize(new Dimension(100, 25));
+        map1.setBorder(emptyBorder);
+        map1.setBorderPainted(false);
+        map2 = new JButton(textureGetter.getmap2icon());
+        map2.setPreferredSize(new Dimension(100, 25));
+        map2.setBorder(emptyBorder);
+        map2.setBorderPainted(false);
+        map3 = new JButton(textureGetter.getmap3icon());
+        map3.setPreferredSize(new Dimension(100, 25));
+        map3.setBorder(emptyBorder);
+        map3.setBorderPainted(false);
+        map4 = new JButton(textureGetter.getmap4icon());
+        map4.setPreferredSize(new Dimension(100, 25));
+        map4.setBorder(emptyBorder);
+        map4.setBorderPainted(false);
+
+        map1.addActionListener(actionListener);
+        map2.addActionListener(actionListener);
+        map3.addActionListener(actionListener);
+        map4.addActionListener(actionListener);
+
+        GridBagConstraints constraints = new GridBagConstraints();
+
+        constraints.insets = new Insets(20,20,20,20);
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        panel.add(map1,constraints);
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        panel.add(map2,constraints);
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        panel.add(map3,constraints);
+        constraints.gridx = 0;
+        constraints.gridy = 4;
+        panel.add(map4,constraints);
+
+        maps.setResizable(false);
+        maps.add(panel,BorderLayout.CENTER);
+
     }
 
     public MainScene()

@@ -14,5 +14,9 @@ public interface ITextureGetter {
     public ImageIcon getstarticon();
     public ImageIcon getleaderboardicon();
     public ImageIcon getcreditsicon();
+    public ImageIcon getmap1icon();
+    public ImageIcon getmap2icon();
+    public ImageIcon getmap3icon();
+    public ImageIcon getmap4icon();
 
 }

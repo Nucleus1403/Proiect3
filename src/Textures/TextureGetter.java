@@ -94,4 +94,17 @@ public class TextureGetter implements ITextureGetter {
     public ImageIcon getcreditsicon() {
         return new ImageIcon("src/Textures/Texture/credits.png");
     }
+
+    public ImageIcon getmap1icon() {
+        return new ImageIcon("src/Textures/Texture/map1.png");
+    }
+    public ImageIcon getmap2icon() {
+        return new ImageIcon("src/Textures/Texture/map2.png");
+    }
+    public ImageIcon getmap3icon() {
+        return new ImageIcon("src/Textures/Texture/map3.png");
+    }
+    public ImageIcon getmap4icon() {
+        return new ImageIcon("src/Textures/Texture/map4.png");
+    }
 }
