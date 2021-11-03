@@ -23,7 +23,7 @@ public class CharacterMovement {
         return instance;
     }
 
-    public void moveCharacterRight()
+    public void moveCharacterDown()
     {
         actor= mapLoader.getActor();
         int positionY = actor.getPositionY();
@@ -40,12 +40,14 @@ public class CharacterMovement {
                 actor.setPositionY(positionY+1);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
             else
             {
                 map[positionX][positionY+1].setType(6);
                 map[positionX][positionY].setType(3);
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
         }
@@ -54,6 +56,7 @@ public class CharacterMovement {
             map[positionX][positionY].setType(2);
             map[positionX][positionY+1].setType(6);
             isflag=true;
+            actor.setPositionY(positionY+1);
             mapLoader.repaint();
         }
 
@@ -71,6 +74,7 @@ public class CharacterMovement {
                 map[positionX][positionY+1].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
             else
@@ -78,6 +82,7 @@ public class CharacterMovement {
                 map[positionX][positionY+2].setType(4);
                 map[positionX][positionY+1].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
         }
@@ -89,6 +94,7 @@ public class CharacterMovement {
                 map[positionX][positionY+1].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
             else
@@ -96,6 +102,7 @@ public class CharacterMovement {
                 map[positionX][positionY+2].setType(5);
                 map[positionX][positionY+1].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
         }
@@ -122,6 +129,7 @@ public class CharacterMovement {
                 map[positionX][positionY+1].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(3);
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
             else
@@ -130,6 +138,7 @@ public class CharacterMovement {
                 map[positionX][positionY+1].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(2);
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
         }
@@ -141,6 +150,7 @@ public class CharacterMovement {
                 map[positionX][positionY+1].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(3);
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
             else
@@ -149,6 +159,7 @@ public class CharacterMovement {
                 map[positionX][positionY+1].setType(6);
                 map[positionX][positionY].setType(2);
                 isflag = true;
+                actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
         }
@@ -161,7 +172,7 @@ public class CharacterMovement {
             return;
         }
     }
-    public void moveCharacterLeft()
+    public void moveCharacterUp()
     {
         actor= mapLoader.getActor();
         int positionY = actor.getPositionY();
@@ -177,12 +188,14 @@ public class CharacterMovement {
                 map[positionX][positionY-1].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
             else
             {
                 map[positionX][positionY-1].setType(6);
                 map[positionX][positionY].setType(3);
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
         }
@@ -191,6 +204,7 @@ public class CharacterMovement {
             map[positionX][positionY].setType(2);
             map[positionX][positionY-1].setType(6);
             isflag=true;
+            actor.setPositionY(positionY-1);
             mapLoader.repaint();
         }
 
@@ -208,6 +222,7 @@ public class CharacterMovement {
                 map[positionX][positionY-1].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
             else
@@ -215,6 +230,7 @@ public class CharacterMovement {
                 map[positionX][positionY-2].setType(4);
                 map[positionX][positionY-1].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
         }
@@ -226,6 +242,7 @@ public class CharacterMovement {
                 map[positionX][positionY-1].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
             else
@@ -233,6 +250,7 @@ public class CharacterMovement {
                 map[positionX][positionY-2].setType(5);
                 map[positionX][positionY-1].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
         }
@@ -259,6 +277,7 @@ public class CharacterMovement {
                 map[positionX][positionY-1].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(3);
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
             else
@@ -267,6 +286,7 @@ public class CharacterMovement {
                 map[positionX][positionY-1].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(2);
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
         }
@@ -278,6 +298,7 @@ public class CharacterMovement {
                 map[positionX][positionY-1].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(3);
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
             else
@@ -286,6 +307,7 @@ public class CharacterMovement {
                 map[positionX][positionY-1].setType(6);
                 map[positionX][positionY].setType(2);
                 isflag = true;
+                actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
         }
@@ -298,7 +320,7 @@ public class CharacterMovement {
             return;
         }
     }
-    public void moveCharacterUp()
+    public void moveCharacterLeft()
     {
         actor= mapLoader.getActor();
         int positionY = actor.getPositionY();
@@ -316,12 +338,14 @@ public class CharacterMovement {
                 map[positionX-1][positionY].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
             else
             {
                 map[positionX-1][positionY].setType(6);
                 map[positionX][positionY].setType(3);
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
         }
@@ -330,6 +354,7 @@ public class CharacterMovement {
             map[positionX][positionY].setType(2);
             map[positionX-1][positionY].setType(6);
             isflag=true;
+            actor.setPositionX(positionX-1);
             mapLoader.repaint();
         }
 
@@ -347,6 +372,7 @@ public class CharacterMovement {
                 map[positionX-1][positionY].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
             else
@@ -354,6 +380,7 @@ public class CharacterMovement {
                 map[positionX-2][positionY].setType(4);
                 map[positionX-1][positionY].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
         }
@@ -365,6 +392,7 @@ public class CharacterMovement {
                 map[positionX-1][positionY].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
             else
@@ -372,6 +400,7 @@ public class CharacterMovement {
                 map[positionX-2][positionY].setType(5);
                 map[positionX-1][positionY].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
         }
@@ -398,6 +427,7 @@ public class CharacterMovement {
                 map[positionX-1][positionY].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(3);
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
             else
@@ -406,6 +436,7 @@ public class CharacterMovement {
                 map[positionX-1][positionY].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(2);
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
         }
@@ -417,6 +448,7 @@ public class CharacterMovement {
                 map[positionX-1][positionY].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(3);
+                actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
             else
@@ -424,6 +456,7 @@ public class CharacterMovement {
                 map[positionX-2][positionY].setType(5);
                 map[positionX-1][positionY].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionX(positionX-1);
                 isflag = true;
                 mapLoader.repaint();
             }
@@ -437,7 +470,7 @@ public class CharacterMovement {
             return;
         }
     }
-    public void moveCharacterDown()
+    public void moveCharacterRight()
     {
         actor= mapLoader.getActor();
         int positionY = actor.getPositionY();
@@ -455,12 +488,14 @@ public class CharacterMovement {
                 map[positionX+1][positionY].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
             else
             {
                 map[positionX+1][positionY].setType(6);
                 map[positionX][positionY].setType(3);
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
         }
@@ -469,6 +504,7 @@ public class CharacterMovement {
             map[positionX][positionY].setType(2);
             map[positionX+1][positionY].setType(6);
             isflag=true;
+            actor.setPositionX(positionX+1);
             mapLoader.repaint();
         }
 
@@ -485,6 +521,7 @@ public class CharacterMovement {
                 map[positionX+2][positionY].setType(4);
                 map[positionX+1][positionY].setType(6);
                 map[positionX][positionY].setType(3);
+                actor.setPositionX(positionX+1);
                 isflag = false;
                 mapLoader.repaint();
             }
@@ -493,6 +530,7 @@ public class CharacterMovement {
                 map[positionX+2][positionY].setType(4);
                 map[positionX+1][positionY].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
         }
@@ -504,6 +542,7 @@ public class CharacterMovement {
                 map[positionX+1][positionY].setType(6);
                 map[positionX][positionY].setType(3);
                 isflag = false;
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
             else
@@ -511,6 +550,7 @@ public class CharacterMovement {
                 map[positionX+2][positionY].setType(5);
                 map[positionX+1][positionY].setType(6);
                 map[positionX][positionY].setType(2);
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
         }
@@ -537,6 +577,7 @@ public class CharacterMovement {
                 map[positionX+1][positionY].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(3);
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
             else
@@ -545,6 +586,7 @@ public class CharacterMovement {
                 map[positionX+1][positionY].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(2);
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
         }
@@ -556,6 +598,7 @@ public class CharacterMovement {
                 map[positionX+1][positionY].setType(6);
                 isflag = true;
                 map[positionX][positionY].setType(3);
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
             else
@@ -564,6 +607,7 @@ public class CharacterMovement {
                 map[positionX+1][positionY].setType(6);
                 map[positionX][positionY].setType(2);
                 isflag = true;
+                actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
         }

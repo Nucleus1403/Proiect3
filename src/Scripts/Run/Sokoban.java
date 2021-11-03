@@ -7,7 +7,10 @@ import Scripts.Framework.Map.MapLoader;
 import Scripts.Framework.Parameters.Parameters;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+
 
 public class Sokoban extends JFrame{
 
@@ -24,7 +27,7 @@ public class Sokoban extends JFrame{
     private void Initialize()
     {
         try {
-            mapLoader = new MapLoader(1);
+            mapLoader = new MapLoader(4);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -38,8 +41,9 @@ public class Sokoban extends JFrame{
         setSize(mapLoader.getSizeX()*parameters.getPixelSize()+20, mapLoader.getSizeY()*parameters.getPixelSize()+42);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(true);
+        setResizable(false);
         setVisible(true);
 
     }
+
 }

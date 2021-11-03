@@ -7,6 +7,8 @@ import Scripts.Framework.Parameters.Parameters;
 import Textures.TextureGetter;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -17,7 +19,8 @@ public class MapLoader extends JPanel {
     public static int SizeY;
 
     public static Cell[][] Map;
-    public Graphics graphics;
+    public Timer timer;
+
     private Scanner sc;
     private int Data;
 
@@ -27,14 +30,13 @@ public class MapLoader extends JPanel {
     private Parameters parameters;
 
     private int PixelSIze;
+    private int seconds;
 
-    public MapLoader()
-    {
-
-    }
+    private JLabel contentPane;
 
     public MapLoader(int mapNr) throws FileNotFoundException {
         InitializeMap(mapNr);
+        InitializeTimer();
         setFocusable(true);
     }
 
@@ -79,9 +81,32 @@ public class MapLoader extends JPanel {
 
         textureGetter = new TextureGetter();
         parameters= new Parameters();
-
         PixelSIze = parameters.getPixelSize();
 
+    }
+    private void InitializeTimer()
+    {
+        contentPane = new JLabel();
+        contentPane.setSize(100,100);
+        contentPane.setFont(new Font("Calibri", Font.BOLD, 35));
+        contentPane.setText("");
+        add(contentPane);
+
+        timerClock();
+        timer.start();
+    }
+
+
+    public void timerClock()
+    {
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                seconds++;
+                contentPane.setText(toStringSeconds());
+                System.out.println(seconds);
+            }
+        });
     }
 
     @Override
@@ -133,6 +158,10 @@ public class MapLoader extends JPanel {
                 }
             }
         }
+    }
+
+    public String toStringSeconds() {
+        return String.valueOf(seconds);
     }
 
     public Actor getActor() {
