@@ -1,7 +1,7 @@
 package Scripts.Framework.Map;
 
 /// 1->wall,2->terrain,3->dot,4->crate_open,5->crate_close,6->character
-/// 7->terrainV2;
+/// 7->wall2,8->wall3;
 
 import Scripts.Framework.Parameters.Parameters;
 import Textures.TextureGetter;
@@ -35,6 +35,7 @@ public class MapLoader extends JPanel {
 
     public MapLoader(int mapNr) throws FileNotFoundException {
         InitializeMap(mapNr);
+        setFocusable(true);
     }
 
     public void InitializeMap(int mapNUmber) throws FileNotFoundException
@@ -86,11 +87,11 @@ public class MapLoader extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        graphics = g;
-        Draw();
+
+        Draw(g);
     }
 
-    public void Draw()
+    public void Draw(Graphics graphics)
     {
         graphics.setColor(new Color(7,75,88));
         graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -100,7 +101,7 @@ public class MapLoader extends JPanel {
                 switch (Map[i][j].getType())
                 {
                     case 1:
-                        graphics.drawImage(textureGetter.getWall(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
+                        graphics.drawImage(textureGetter.getWall(0),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
                         break;
                     case 2:
                         graphics.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
@@ -118,6 +119,15 @@ public class MapLoader extends JPanel {
                         break;
                     case 6:
                         graphics.drawImage(textureGetter.getCharacter(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
+
+                        break;
+
+                    case 7:
+                        graphics.drawImage(textureGetter.getWall(1),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
+
+                        break;
+                    case 8:
+                        graphics.drawImage(textureGetter.getWall(2),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
 
                         break;
                 }

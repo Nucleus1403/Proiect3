@@ -24,15 +24,16 @@ public class TextureGetter implements ITextureGetter {
         return null;
     }
 
-    public Image getWall() {
+    public Image getWall(int type) {
         try{
-            Random rnd = new Random();
-            int value = rnd.nextInt(0,3);
-
             ImageIcon iicon;
 
-            switch (value)
+            switch (type)
             {
+                case 0:
+                    iicon = new ImageIcon("src/Textures/Texture/wall1.png");
+                    break;
+
                 case 1:
                     iicon = new ImageIcon("src/Textures/Texture/wall2.png");
                     break;
