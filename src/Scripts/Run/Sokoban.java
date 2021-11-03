@@ -21,13 +21,19 @@ public class Sokoban extends JFrame{
     public Sokoban()
     {
         frame = this;
-        Initialize();
+        Initialize(1);
     }
 
-    private void Initialize()
+    public Sokoban(int map)
+    {
+        frame = this;
+        Initialize(map);
+    }
+
+    private void Initialize(int map)
     {
         try {
-            mapLoader = new MapLoader(4);
+            mapLoader = new MapLoader(map);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

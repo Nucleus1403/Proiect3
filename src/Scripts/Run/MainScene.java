@@ -13,12 +13,20 @@ public class MainScene {
     private JButton startgame;
     private JButton leaderboard;
     private JButton credits;
+    private int mapNr=0;
 
     private final ActionListener actionListener = actionEvent -> {
         Object source = actionEvent.getSource();
         if (source == startgame) {
-            Sokoban game = new Sokoban();
-            game.setVisible(true);
+            if(mapNr==0) {
+                Sokoban game = new Sokoban();
+                game.setVisible(true);
+            }else
+            {
+                Sokoban game = new Sokoban(mapNr);
+                game.setVisible(true);
+            }
+            frame.setVisible(false);
 
         }else if(source == leaderboard)
         {
