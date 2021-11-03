@@ -7,10 +7,7 @@ import Scripts.Framework.Map.MapLoader;
 import Scripts.Framework.Parameters.Parameters;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-
 
 public class Sokoban extends JFrame{
 
@@ -21,7 +18,7 @@ public class Sokoban extends JFrame{
     public Sokoban()
     {
         frame = this;
-        Initialize(1);
+        Initialize(4);
     }
 
     public Sokoban(int map)

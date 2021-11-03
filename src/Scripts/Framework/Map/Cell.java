@@ -2,6 +2,7 @@ package Scripts.Framework.Map;
 
 public class Cell {
     private int type;
+    public Boolean isFlag=false;
 
     public Cell(int type)
     {

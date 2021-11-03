@@ -76,6 +76,11 @@ public class MapLoader extends JPanel {
                 {
                     actor = new Actor(i,j);
                 }
+                if(Data == 3)
+                    Map[i][j].isFlag =true;
+
+                if(Data ==5)
+                    Map[i][j].isFlag =true;
             }
         }
 
@@ -129,7 +134,12 @@ public class MapLoader extends JPanel {
                         graphics.drawImage(textureGetter.getWall(0),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
                         break;
                     case 2:
-                        graphics.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
+                        if(Map[i][j].isFlag)
+                        {
+                            graphics.drawImage(textureGetter.getDot(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
+
+                        }else
+                            graphics.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
                         break;
                     case 3:
                         graphics.drawImage(textureGetter.getDot(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
