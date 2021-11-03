@@ -46,18 +46,28 @@ public class CharacterMovement {
             else
             {
                 map[positionX][positionY+1].setType(6);
-                map[positionX][positionY].setType(3);
+                map[positionX][positionY].setType(2);
                 actor.setPositionY(positionY+1);
                 mapLoader.repaint();
             }
         }
         if(map[positionX][positionY+1].getType() == 3)
         {
-            map[positionX][positionY].setType(2);
-            map[positionX][positionY+1].setType(6);
-            isflag=true;
-            actor.setPositionY(positionY+1);
-            mapLoader.repaint();
+            if(isflag == true)
+            {
+                map[positionX][positionY].setType(3);
+                map[positionX][positionY+1].setType(6);
+                isflag=true;
+                actor.setPositionY(positionY+1);
+                mapLoader.repaint();
+            }
+            else {
+                map[positionX][positionY].setType(2);
+                map[positionX][positionY + 1].setType(6);
+                isflag = true;
+                actor.setPositionY(positionY + 1);
+                mapLoader.repaint();
+            }
         }
 
         if((map[positionX][positionY+1].getType() == 4) && (map[positionX][positionY+2].getType() == 1) ||
@@ -194,18 +204,28 @@ public class CharacterMovement {
             else
             {
                 map[positionX][positionY-1].setType(6);
-                map[positionX][positionY].setType(3);
+                map[positionX][positionY].setType(2);
                 actor.setPositionY(positionY-1);
                 mapLoader.repaint();
             }
         }
         if(map[positionX][positionY-1].getType() == 3)
         {
-            map[positionX][positionY].setType(2);
-            map[positionX][positionY-1].setType(6);
-            isflag=true;
-            actor.setPositionY(positionY-1);
-            mapLoader.repaint();
+            if(isflag == true)
+            {
+                map[positionX][positionY].setType(3);
+                map[positionX][positionY-1].setType(6);
+                isflag=true;
+                actor.setPositionY(positionY+1);
+                mapLoader.repaint();
+            }
+            else {
+                map[positionX][positionY].setType(2);
+                map[positionX][positionY - 1].setType(6);
+                isflag = true;
+                actor.setPositionY(positionY + 1);
+                mapLoader.repaint();
+            }
         }
 
         if(((map[positionX][positionY-1].getType() == 4) && (map[positionX][positionY-2].getType() == 1))||
@@ -344,18 +364,27 @@ public class CharacterMovement {
             else
             {
                 map[positionX-1][positionY].setType(6);
-                map[positionX][positionY].setType(3);
+                map[positionX][positionY].setType(2);
                 actor.setPositionX(positionX-1);
                 mapLoader.repaint();
             }
         }
         if(map[positionX-1][positionY].getType() == 3)
         {
-            map[positionX][positionY].setType(2);
-            map[positionX-1][positionY].setType(6);
-            isflag=true;
-            actor.setPositionX(positionX-1);
-            mapLoader.repaint();
+            if(isflag == true)
+            {
+                map[positionX][positionY].setType(3);
+                map[positionX-1][positionY].setType(6);
+                actor.setPositionX(positionX-1);
+                mapLoader.repaint();
+            }
+            else {
+                map[positionX][positionY].setType(2);
+                map[positionX - 1][positionY].setType(6);
+                isflag = true;
+                actor.setPositionX(positionX - 1);
+                mapLoader.repaint();
+            }
         }
 
         if(((map[positionX-1][positionY].getType() == 4) && (map[positionX-2][positionY].getType() == 1))||
@@ -494,18 +523,28 @@ public class CharacterMovement {
             else
             {
                 map[positionX+1][positionY].setType(6);
-                map[positionX][positionY].setType(3);
+                map[positionX][positionY].setType(2);
                 actor.setPositionX(positionX+1);
                 mapLoader.repaint();
             }
         }
         if(map[positionX+1][positionY].getType() == 3)
         {
-            map[positionX][positionY].setType(2);
-            map[positionX+1][positionY].setType(6);
-            isflag=true;
-            actor.setPositionX(positionX+1);
-            mapLoader.repaint();
+            if(isflag == true)
+            {
+                map[positionX][positionY].setType(3);
+                map[positionX+1][positionY].setType(6);
+                isflag=true;
+                actor.setPositionX(positionX+1);
+                mapLoader.repaint();
+            }
+            else {
+                map[positionX][positionY].setType(2);
+                map[positionX + 1][positionY].setType(6);
+                isflag = true;
+                actor.setPositionX(positionX + 1);
+                mapLoader.repaint();
+            }
         }
 
         if(((map[positionX+1][positionY].getType() == 4) && (map[positionX+2][positionY].getType() == 1))||
