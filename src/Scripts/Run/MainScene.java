@@ -31,7 +31,7 @@ public class MainScene {
 
     private void ShowCredits() {
         JFrame credits =new JFrame("Credits");
-        credits.setSize(310,610);
+        credits.setSize(574,574);
         ImageIcon imag = new ImageIcon("src/Textures/Texture/TreiDegeaba.png");
         JLabel contentPane = new JLabel();
         contentPane.setIcon(imag);
