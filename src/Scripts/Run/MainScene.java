@@ -1,5 +1,6 @@
 package Scripts.Run;
 
+import Scripts.Framework.InputSystem.SoundEffect;
 import Scripts.Framework.Parameters.Parameters;
 import Textures.TextureGetter;
 
@@ -9,36 +10,84 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class MainScene {
-    JFrame frame = new JFrame("MainMenu");
-    private JButton startgame;
-    private JButton leaderboard;
-    private JButton credits;
+
+    public JFrame frame = new JFrame("MainMenu");
+    public JFrame maps =new JFrame("Maps");
+    public JFrame credits =new JFrame("Credits");
+
+    private JButton startGameButton;
+    private JButton mapsButton;
+    private JButton creditsButton;
+
+    private JButton map1;
+    private JButton map2;
+    private JButton map3;
+    private JButton map4;
+
+    private SoundEffect soundEffect;
+
     private int mapNr=0;
 
     private final ActionListener actionListener = actionEvent -> {
         Object source = actionEvent.getSource();
-        if (source == startgame) {
+        if (source == startGameButton) {
+            Sokoban game;
             if(mapNr==0) {
-                Sokoban game = new Sokoban();
-                game.setVisible(true);
+                game = new Sokoban();
             }else
             {
-                Sokoban game = new Sokoban(mapNr);
-                game.setVisible(true);
+                game = new Sokoban(mapNr);
             }
+            game.setVisible(true);
             frame.setVisible(false);
 
-        }else if(source == leaderboard)
+        }else if(source == mapsButton)
         {
-            ShowLeaderboard();
-        }else if(source == credits)
+            ShowMaps();
+        }else if(source == creditsButton)
         {
             ShowCredits();
+            PlayCreditsMusic();
         }
+        else if(source==map1)
+        {
+            System.out.println(2);
+            mapNr=1;
+            maps.setVisible(false);
+        }
+        else if(source==map2)
+        {
+            System.out.println(2);
+            mapNr=2;
+            maps.setVisible(false);
+        }
+        else if(source==map3)
+        {
+            System.out.println(3);
+            mapNr=3;
+            maps.setVisible(false);
+        }
+        else if(source==map4)
+        {
+            System.out.println(4);
+            mapNr=4;
+            maps.setVisible(false);
+        }
+        PlayButtonSound();
     };
 
-    private void ShowCredits() {
-        JFrame credits =new JFrame("Credits");
+    private void PlayButtonSound()
+    {
+        soundEffect.play("src/Textures/Sounds/button-10.wav");
+    }
+
+    private void PlayCreditsMusic()
+    {
+        soundEffect.play("src/Textures/Sounds/Rick Roll.wav");
+    }
+
+    private void ShowCredits()
+    {
         credits.setSize(574,574);
         ImageIcon imag = new ImageIcon("src/Textures/Texture/TreiDegeaba.png");
         JLabel contentPane = new JLabel();
@@ -49,16 +98,11 @@ public class MainScene {
         credits.setResizable(false);
         credits.setBackground(Color.black);
         contentPane.setBackground(Color.black);
+
     }
 
-    private void ShowLeaderboard() {
+    private void ShowMaps() {
 
-         JButton map1;
-         JButton map2;
-         JButton map3;
-         JButton map4;
-
-        JFrame maps =new JFrame("Maps");
         maps.setSize(526,800);
         ImageIcon imag2 = new ImageIcon("src/Textures/Texture/mapselect.png");
         JLabel contentPane = new JLabel();
@@ -116,14 +160,14 @@ public class MainScene {
         maps.setResizable(false);
         maps.add(panel,BorderLayout.CENTER);
 
+        maps.repaint();
     }
 
     public MainScene()
     {
-
-         Parameters p = new Parameters();
+        soundEffect = new SoundEffect();
+        Parameters p = new Parameters();
         frame.setSize(p.getMainPixelSize(), p.getMainPixelSize()+70);
-
 
         InitializeButtonPanel();
 
@@ -143,42 +187,39 @@ public class MainScene {
         contentPane.setIcon(img);
         frame.add(contentPane);
 
-        startgame = new JButton(textureGetter.getstarticon());
-        startgame.setPreferredSize(new Dimension(100, 25));
-        startgame.setBorder(emptyBorder);
-        startgame.setBorderPainted(false);
-        leaderboard = new JButton(textureGetter.getleaderboardicon());
-        leaderboard.setPreferredSize(new Dimension(100, 25));
-        leaderboard.setBorder(emptyBorder);
-        leaderboard.setBorderPainted(false);
-        credits = new JButton(textureGetter.getcreditsicon());
-        credits.setPreferredSize(new Dimension(100, 25));
-        credits.setBorder(emptyBorder);
-        credits.setBorderPainted(false);
+        startGameButton = new JButton(textureGetter.getstarticon());
+        startGameButton.setPreferredSize(new Dimension(100, 25));
+        startGameButton.setBorder(emptyBorder);
+        startGameButton.setBorderPainted(false);
+        mapsButton = new JButton(textureGetter.getleaderboardicon());
+        mapsButton.setPreferredSize(new Dimension(100, 25));
+        mapsButton.setBorder(emptyBorder);
+        mapsButton.setBorderPainted(false);
+        creditsButton = new JButton(textureGetter.getcreditsicon());
+        creditsButton.setPreferredSize(new Dimension(100, 25));
+        creditsButton.setBorder(emptyBorder);
+        creditsButton.setBorderPainted(false);
 
-        startgame.addActionListener(actionListener);
-        leaderboard.addActionListener(actionListener);
-        credits.addActionListener(actionListener);
+        startGameButton.addActionListener(actionListener);
+        mapsButton.addActionListener(actionListener);
+        creditsButton.addActionListener(actionListener);
 
         GridBagConstraints constraints = new GridBagConstraints();
 
         constraints.insets = new Insets(20,20,20,20);
         constraints.gridx = 1;
         constraints.gridy = 0;
-        panel.add(startgame,constraints);
+        panel.add(startGameButton,constraints);
         constraints.gridx = 2;
         constraints.gridy = 0;
-        panel.add(leaderboard,constraints);
+        panel.add(mapsButton,constraints);
         constraints.gridx = 3;
         constraints.gridy = 0;
-        panel.add(credits,constraints);
+        panel.add(creditsButton,constraints);
 
         frame.setResizable(false);
         frame.add(panel,BorderLayout.SOUTH);
         frame.getContentPane().setBackground(Color.decode("#00050a"));
         panel.setBackground(Color.decode("#00050a"));
-
-
-
     }
 }

@@ -3,6 +3,7 @@ package Scripts.Framework.Map;
 /// 1->wall,2->terrain,3->dot,4->crate_open,5->crate_close,6->character
 /// 7->wall2,8->wall3;
 
+import Scripts.Framework.InputSystem.SoundEffect;
 import Scripts.Framework.Parameters.Parameters;
 import Textures.TextureGetter;
 import javax.swing.*;
@@ -32,6 +33,8 @@ public class MapLoader extends JPanel {
     private int PixelSIze;
     private int seconds;
 
+    private SoundEffect soundEffect;
+
     private JLabel contentPane;
 
     public MapLoader(int mapNr) throws FileNotFoundException {
@@ -39,6 +42,8 @@ public class MapLoader extends JPanel {
         InitializeTimer();
         setFocusable(true);
     }
+
+
 
     public void InitializeMap(int mapNUmber) throws FileNotFoundException
     {
@@ -88,6 +93,8 @@ public class MapLoader extends JPanel {
         parameters= new Parameters();
         PixelSIze = parameters.getPixelSize();
 
+        soundEffect=new SoundEffect();
+
     }
     private void InitializeTimer()
     {
@@ -121,6 +128,7 @@ public class MapLoader extends JPanel {
         Draw(g);
     }
 
+
     public void Draw(Graphics graphics)
     {
         graphics.setColor(new Color(7,75,88));
@@ -137,7 +145,6 @@ public class MapLoader extends JPanel {
                         if(Map[i][j].isFlag)
                         {
                             graphics.drawImage(textureGetter.getDot(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
-
                         }else
                             graphics.drawImage(textureGetter.getTerrain(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
                         break;
@@ -146,24 +153,18 @@ public class MapLoader extends JPanel {
                         break;
                     case 4:
                         graphics.drawImage(textureGetter.getCrate_open(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
-
                         break;
                     case 5:
                         graphics.drawImage(textureGetter.getCrate_closed(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
-
                         break;
                     case 6:
                         graphics.drawImage(textureGetter.getCharacter(),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
-
                         break;
-
                     case 7:
                         graphics.drawImage(textureGetter.getWall(1),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
-
                         break;
                     case 8:
                         graphics.drawImage(textureGetter.getWall(2),(i*PixelSIze)+4,(j*PixelSIze)+4,this);
-
                         break;
                 }
             }

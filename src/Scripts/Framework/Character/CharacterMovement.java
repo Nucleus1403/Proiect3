@@ -1,5 +1,6 @@
 package Scripts.Framework.Character;
 
+import Scripts.Framework.InputSystem.SoundEffect;
 import Scripts.Framework.Map.Actor;
 import Scripts.Framework.Map.Cell;
 import Scripts.Framework.Map.MapLoader;
@@ -23,8 +24,14 @@ public class CharacterMovement {
         return instance;
     }
 
+    private void PlayMove() {
+        SoundEffect soundEffect =new SoundEffect();
+        soundEffect.play("src/Textures/Sounds/button-10.wav");
+    }
+
     public void moveCharacterDown()
     {
+        PlayMove();
         actor= mapLoader.getActor();
         int positionY = actor.getPositionY();
         int positionX = actor.getPositionX();
@@ -184,6 +191,7 @@ public class CharacterMovement {
     }
     public void moveCharacterUp()
     {
+        PlayMove();
         actor= mapLoader.getActor();
         int positionY = actor.getPositionY();
         int positionX = actor.getPositionX();
@@ -342,6 +350,7 @@ public class CharacterMovement {
     }
     public void moveCharacterLeft()
     {
+        PlayMove();
         actor= mapLoader.getActor();
         int positionY = actor.getPositionY();
         int positionX = actor.getPositionX();
@@ -501,6 +510,7 @@ public class CharacterMovement {
     }
     public void moveCharacterRight()
     {
+        PlayMove();
         actor= mapLoader.getActor();
         int positionY = actor.getPositionY();
         int positionX = actor.getPositionX();
